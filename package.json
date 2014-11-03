@@ -1,0 +1,47 @@
+{
+  "name": "preceptor-webdriver",
+  "version": "0.9.0",
+  "description": "Webdriver plugin for the Preceptor test-runner and aggregator",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover -- _mocha --reporter spec",
+    "docs": "yuidoc ."
+  },
+  "homepage": "https://github.com/yahoo/preceptor-wedriver",
+  "bugs": "https://github.com/yahoo/preceptor-webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yahoo/preceptor-webdriver.git"
+  },
+  "keywords": [
+    "testing",
+    "preceptor",
+    "webdriver",
+    "cabbie",
+    "saucelabs",
+    "browserstack",
+    "ghostdriver",
+    "chromedriver",
+    "selenium"
+  ],
+  "author": {
+    "name": "Marcel Erz",
+    "email": "erz@yahoo-inc.com"
+  },
+  "dependencies": {
+    "istanbul": "0.3.2",
+    "minimatch": "1.0.0",
+    "preceptor": "~0.9.0",
+    "preceptor-core": "~0.9.0",
+    "selenium-server-standalone-jar": "2.43.1",
+    "promise": "6.0.0",
+    "underscore": "1.7.0"
+  },
+  "devDependencies": {
+    "cabbie": "git+ssh://git@github.com:marcelerz/cabbie.git#master",
+    "chai": "1.9.1",
+    "mocha": "1.21.4",
+    "yuidocjs": "0.3.50"
+  }
+}
