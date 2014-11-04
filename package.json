@@ -41,6 +41,7 @@
   "devDependencies": {
     "cabbie": "git+ssh://git@github.com:marcelerz/cabbie.git#master",
     "chai": "1.9.1",
+    "coveralls": "2.11.2",
     "mocha": "1.21.4",
     "yuidocjs": "0.3.50"
   }
