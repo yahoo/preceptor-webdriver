@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Preceptor-webdriver : WebDriver plugin for the Preceptor test-runner and aggregator">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Preceptor-webdriver</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/yahoo/preceptor-webdriver">View on GitHub</a>
+
+          <h1 id="project_title">Preceptor-webdriver</h1>
+          <h2 id="project_tagline">WebDriver plugin for the Preceptor test-runner and aggregator</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/yahoo/preceptor-webdriver/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/yahoo/preceptor-webdriver/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="preceptor-webdriver-plugin" class="anchor" href="#preceptor-webdriver-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preceptor-WebDriver (Plugin)</h1>
+
+<p>Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testing clients, simpifying the test setup and tear-down for Selenium tests by configuring it in one centralized configuration file. </p>
+
+<p><a href="http://travis-ci.org/yahoo/preceptor-webdriver"><img src="https://secure.travis-ci.org/yahoo/preceptor-webdriver.png" alt="Build Status"></a>
+<a href="http://badge.fury.io/js/preceptor-webdriver"><img src="https://badge.fury.io/js/preceptor-webdriver.svg" alt="npm version"></a></p>
+
+<p><a href="https://nodei.co/npm/preceptor-webdriver/"><img src="https://nodei.co/npm/preceptor-webdriver.png?downloads=true" alt="NPM"></a></p>
+
+<p><strong>Table of Contents</strong></p>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li>
+<a href="#services">Services</a>
+
+<ul>
+<li>
+<a href="#webdriver---client-decorator">WebDriver - Client-Decorator</a>
+
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li>
+<a href="#webdriver-clients">WebDriver Clients</a>
+
+<ul>
+<li><a href="#configuration-1">Configuration</a></li>
+<li><a href="#cabbie">Cabbie</a></li>
+<li><a href="#external">External</a></li>
+</ul>
+</li>
+<li>
+<a href="#webdriver-servers">WebDriver Servers</a>
+
+<ul>
+<li><a href="#configuration-3">Configuration</a></li>
+<li><a href="#browserstack">BrowserStack</a></li>
+<li><a href="#chromedriver">ChromeDriver</a></li>
+<li><a href="#external-1">External</a></li>
+<li><a href="#ghostdriver">GhostDriver</a></li>
+<li><a href="#saucelabs">SauceLabs</a></li>
+<li><a href="#selenium">Selenium Stand-Alone</a></li>
+</ul>
+</li>
+<li><a href="#coverage">Coverage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#plugins">Plugins</a>
+
+<ul>
+<li><a href="#client-plugin">Client-Plugin</a></li>
+<li><a href="#server-plugin">Server-Plugin</a></li>
+<li><a href="#example-3">Example</a></li>
+</ul>
+</li>
+<li><a href="#api-documentation">API-Documentation</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#third-party-libraries">Third-party libraries</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install this module with the following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm install preceptor-webdriver
+</pre></div>
+
+<p>Add the module to your <code>package.json</code> dependencies:</p>
+
+<div class="highlight highlight-shell"><pre>npm install --save preceptor-webdriver
+</pre></div>
+
+<p>Add the module to your <code>package.json</code> dev-dependencies:</p>
+
+<div class="highlight highlight-shell"><pre>npm install --save-dev preceptor-webdriver
+</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>In your Preceptor configuration, add this plugin package-name to the <code>plugins</code> list in the global configurations section. Preceptor will automatically load and initialize the plugin, and this plugin will be from then on available to all tasks.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s1">'preceptor-webdriver'</span><span class="p">]</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Afterwards, the Web-Driver client-decorator plugin can be configured:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="p">{</span> <span class="c1">// Preceptor task configuration</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"mocha"</span><span class="p">,</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="s2">"decorator"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"webDriver"</span><span class="p">,</span> <span class="c1">// Id of this module when registered in Preceptor</span>
+
+            <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">"isolation"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Runs in isolation mode</span>
+
+                <span class="s2">"client"</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// Client configuration</span>
+                    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"cabbie"</span><span class="p">,</span>
+                    <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"sync"</span>
+                    <span class="p">},</span>
+                    <span class="s2">"capabilities"</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">"browserName"</span><span class="o">:</span> <span class="s2">"firefox"</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+
+                <span class="s2">"server"</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// Server configuration</span>
+                    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"selenium"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a id="services" class="anchor" href="#services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Services</h2>
+
+<p>This plugin provides the following services for Preceptor:</p>
+
+<ul>
+<li>
+<code>webDriver</code> (ClientDecorator) - Adds a  client-decorator to Preceptor that can inject WebDriver code into Preceptor clients</li>
+</ul>
+
+<h3>
+<a id="webdriver---client-decorator" class="anchor" href="#webdriver---client-decorator" aria-hidden="true"><span class="octicon octicon-link"></span></a>WebDriver - Client-Decorator</h3>
+
+<p>The WebDriver client-decorator is loaded for each Preceptor task and executes code at different stages of a tests testing lifecycle. See the Preceptor project page for more information about the testing lifecycle.
+This module has its own plugin management, providing different clients and servers for the Selenium testing infrastructure. </p>
+
+<h4>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h4>
+
+<p>The Web-Driver client-decorator has the following configuration options:</p>
+
+<ul>
+<li>
+<code>isolation</code> {boolean} - If set, the Web-Driver client and server will run in Isolation-mode, meaning that every test will run in its own browser instance instead of sharing the browser session with multiple test (default: false). When isolation mode is turned on, the test will take significantly longer, but they will be more independent from each other.</li>
+<li>
+<code>coverage</code> {object} - Coverage configuration. See below for more information.</li>
+<li>
+<code>client</code> {object} - Client configuration object. See below for more information on how to configure the client.</li>
+<li>
+<code>server</code> {object} - Server configuration object. See below for more information on how to configure the server.</li>
+</ul>
+
+<h5>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-javascript"><pre><span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"isolation"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"server"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"selenium"</span><span class="p">,</span>
+        <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"port"</span><span class="o">:</span> <span class="s2">"4444"</span>
+        <span class="p">},</span>
+        <span class="s2">"timeOut"</span><span class="o">:</span> <span class="mi">10000</span>
+    <span class="p">},</span>
+    <span class="s2">"client"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"cabbie"</span><span class="p">,</span>
+        <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"sync"</span><span class="p">,</span>
+            <span class="s2">"debug"</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="s2">"capabilities"</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">"browserName"</span><span class="o">:</span> <span class="s2">"firefox"</span><span class="p">,</span>
+
+            <span class="s2">"acceptSslCerts"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"cssSelectorsEnabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"javascriptEnabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"takesScreenshot"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"handlesAlerts"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"unexpectedAlertBehavior"</span><span class="o">:</span> <span class="s1">'accept'</span>
+        <span class="p">},</span>
+        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://127.0.0.1:4444/wd/hub"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4>
+<a id="webdriver-clients" class="anchor" href="#webdriver-clients" aria-hidden="true"><span class="octicon octicon-link"></span></a>WebDriver Clients</h4>
+
+<p>Following clients are included with this module:</p>
+
+<ul>
+<li>
+<code>cabbie</code> - Simple web-driver client that supports synchronous and asynchronous Selenium testing</li>
+<li>
+<code>external</code> - A placeholder plugin that lets the testing-framework use its own web-driver client without interfering with other already existing and possibly loaded WebDriver clients.</li>
+</ul>
+
+<p>Any additional Web-Driver clients can be added by importing them through the Preceptor plugin manager. See the Plugin section below for more information.</p>
+
+<h5>
+<a id="configuration-1" class="anchor" href="#configuration-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h5>
+
+<p>Every Web-Driver client has configuration options that are the same across all Web-Driver clients. These options are:</p>
+
+<ul>
+<li>
+<code>type</code> {string} - Name of client-plugin (default: external)</li>
+<li>
+<code>configuration</code> {object} - Client specific configuration. All the additional configuration options supplied below should be defined in this object.</li>
+<li>
+<code>capabilities</code> {object} - Capabilities required by the client. These are the standard Selenium capabilities that the client requests from the server.</li>
+<li>
+<code>url</code> {string} - Url of the Selenium server. This may be automatically pre-filled by the selected server plugin.</li>
+</ul>
+
+<h6>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<div class="highlight highlight-javascript"><pre><span class="s2">"client"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"cabbie"</span><span class="p">,</span>
+    <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"mode"</span><span class="o">:</span> <span class="s2">"sync"</span><span class="p">,</span>
+        <span class="s2">"debug"</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="s2">"capabilities"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"browserName"</span><span class="o">:</span> <span class="s2">"firefox"</span><span class="p">,</span>
+
+        <span class="s2">"acceptSslCerts"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"cssSelectorsEnabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"javascriptEnabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"takesScreenshot"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"handlesAlerts"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"unexpectedAlertBehavior"</span><span class="o">:</span> <span class="s1">'accept'</span>
+    <span class="p">},</span>
+    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"http://127.0.0.1:4444/wd/hub"</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a id="cabbie" class="anchor" href="#cabbie" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cabbie</h5>
+
+<p>Cabbie is a lightweight Selenium client that supports synchronous and asynchronous testing. For more information, visit the project page at: <a href="https://github.com/ForbesLindesay/cabbie">https://github.com/ForbesLindesay/cabbie</a></p>
+
+<h6>
+<a id="configuration-2" class="anchor" href="#configuration-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h6>
+
+<p>The web-driver client plugin exposes the following configuration options in the Preceptor client-decorator configuration:</p>
+
+<ul>
+<li>
+<code>mode</code> {string} - Type of execution mode. Following types are supported: 'sync', 'async'</li>
+<li>
+<code>debug</code> {boolean} - Turns the debug-mode on, printing out every low-level method executed. (default: false)</li>
+<li>
+<code>httpDebug</code> {boolean} Turns the HTTP debug-mode on, printing out every request and response to the WebDriver server. For this option to work, <code>debug</code> must also be turned on. (default: false)</li>
+</ul>
+
+<h5>
+<a id="external" class="anchor" href="#external" aria-hidden="true"><span class="octicon octicon-link"></span></a>External</h5>
+
+<p>This is a placeholder plugin for the Web-Driver client that will not do anything; it is just there to satisfy the client-decorators need to have a client select. This client should be used if the Preceptor testing client supplies its own Web-Driver client.</p>
+
+<h4>
+<a id="webdriver-servers" class="anchor" href="#webdriver-servers" aria-hidden="true"><span class="octicon octicon-link"></span></a>WebDriver Servers</h4>
+
+<p>Following servers are included in this module:</p>
+
+<ul>
+<li>
+<code>browserStack</code> - Uses the Browser-Stack cloud services as a Selenium server</li>
+<li>
+<code>chromeDriver</code> - Starts the ChromeDriver locally to execute tests in the local Chrome browser</li>
+<li>
+<code>external</code> - A placeholder plugin that lets the testing-framework use its own Web-Driver server</li>
+<li>
+<code>ghostDriver</code> - Starts ghost-driver on top of PhantomJs to execute tests headlessly on PhantomJs, running it on the local machine</li>
+<li>
+<code>sauceLabs</code> - Uses the SauceLabs cloud services as a Selenium server</li>
+<li>
+<code>selenium</code> - Starts the Selenium stand-alone server locally to run any hub connected browsers</li>
+</ul>
+
+<p>Any additional Web-Driver servers can be added by importing them through the Preceptor plugin manager. See the Plugin section below for more information.</p>
+
+<h5>
+<a id="configuration-3" class="anchor" href="#configuration-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h5>
+
+<p>Every Web-Driver server has configuration options that are the same across all Web-Driver servers. These options are:</p>
+
+<ul>
+<li>
+<code>type</code> {string} - Name of server-plugin (default: external)</li>
+<li>
+<code>configuration</code> {object} - Server specific configuration. All the additional configuration options supplied below should be defined in this object.</li>
+<li>
+<code>timeOut</code> {int} - Timeout for the server to start up. (default: 15000 ms)</li>
+</ul>
+
+<h6>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<div class="highlight highlight-javascript"><pre><span class="s2">"server"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"selenium"</span><span class="p">,</span>
+    <span class="s2">"configuration"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"port"</span><span class="o">:</span> <span class="s2">"4444"</span>
+    <span class="p">},</span>
+    <span class="s2">"timeOut"</span><span class="o">:</span> <span class="mi">10000</span>
+<span class="p">}</span>
+</pre></div>
+
+<h5>
+<a id="browserstack" class="anchor" href="#browserstack" aria-hidden="true"><span class="octicon octicon-link"></span></a>BrowserStack</h5>
+
+<p>The <code>browserStack</code> server plugin will provision a Web-Driver server in the Browser-Stack cloud and will make it available to be used by the Preceptor client thorugh an url.</p>
+
+<h6>
+<a id="configuration-4" class="anchor" href="#configuration-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h6>
+
+<p>For this plugin to work, it needs to supply the following configuration options:</p>
+
+<ul>
+<li>
+<code>user</code> {string} - User to be used to access the cloud services</li>
+<li>
+<code>accessKey</code> {string} - Access-key for the user to access the cloud services</li>
+</ul>
+
+<h5>
+<a id="chromedriver" class="anchor" href="#chromedriver" aria-hidden="true"><span class="octicon octicon-link"></span></a>ChromeDriver</h5>
+
+<p>The ChromeDriver will be started locally, connecting Preceptor clients with the local instance of the Chrome browser. There is no need for a Selenium hub when using this plugin since the ChromeDriver will function as a hub on its own.
+This server plugin does not add any configuration options. This server uses port '9515' for Selenium communication.</p>
+
+<h6>
+<a id="modules-required" class="anchor" href="#modules-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules required</h6>
+
+<p>For this plugin to work, you need to add the following modules to your package.json:</p>
+
+<ul>
+<li>
+<code>chromedriver</code> - Module supplying the Chrome-Driver binary</li>
+</ul>
+
+<h5>
+<a id="external-1" class="anchor" href="#external-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>External</h5>
+
+<p>This is a placeholder plugin for the web-driver server; it doesn't start or stop any server. However, it provides the client with a url to connect to. The plugin first checks if an environment variable with the name <code>SELENIUM_HUB_URL</code> is available and uses that, otherwise it will use <code>http://127.0.0.1:4444/wd/hub</code> as default since it is the default address for a locally running Selenium stand-alone server.
+This server plugin does not add any configuration options.</p>
+
+<h5>
+<a id="ghostdriver" class="anchor" href="#ghostdriver" aria-hidden="true"><span class="octicon octicon-link"></span></a>GhostDriver</h5>
+
+<p>The GhostDriver plugin will start and stop PhantomJs with GhostDriver listening on a given port. It will also automatically set the <code>browserName</code> option in the client capabilities to <code>phantomjs</code> if none was given. The server-url will always be set to <code>http://127.0.0.1:&lt;port&gt;/</code>.</p>
+
+<h6>
+<a id="configuration-5" class="anchor" href="#configuration-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h6>
+
+<ul>
+<li>
+<code>port</code> {int} - Port on which GhostDriver should listen on (default: 9517)</li>
+</ul>
+
+<h6>
+<a id="modules-required-1" class="anchor" href="#modules-required-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules required</h6>
+
+<p>For this plugin to work, you need to add the following modules to your package.json:</p>
+
+<ul>
+<li>
+<code>phantomjs</code> - Module supplying the PhantomJs binary</li>
+</ul>
+
+<h5>
+<a id="saucelabs" class="anchor" href="#saucelabs" aria-hidden="true"><span class="octicon octicon-link"></span></a>SauceLabs</h5>
+
+<p>The <code>sauceLabs</code> server plugin will provision a Web-Driver server in the SauceLabs cloud and will make it available to be used by the Preceptor client through an url.</p>
+
+<h6>
+<a id="configuration-6" class="anchor" href="#configuration-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h6>
+
+<p>For this plugin to work, it needs to supply the following configuration options:</p>
+
+<ul>
+<li>
+<code>user</code> {string} - User to be used to access the cloud services</li>
+<li>
+<code>accessKey</code> {string} - Access-key for the user to access the cloud services</li>
+</ul>
+
+<h5>
+<a id="selenium" class="anchor" href="#selenium" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selenium</h5>
+
+<p>The <code>selenium</code> server plugin will start and stop the Selenium stand-alone server on the local machine.</p>
+
+<h6>
+<a id="configuration-7" class="anchor" href="#configuration-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h6>
+
+<ul>
+<li>
+<code>javaPath</code> {string} - (optional) Path to the java binary to run the jar file. Should no <code>javaPath</code> be supplied, then the plugin will try to determine the path using the <code>JAVA_HOME</code> environment variable or will use <code>/usr/bin/java</code> as default path.</li>
+<li>
+<code>port</code> {int} - Port on which the Selenium stand-alone server should listen on (default: 9518)</li>
+</ul>
+
+<h6>
+<a id="modules-required-2" class="anchor" href="#modules-required-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules required</h6>
+
+<p>For this plugin to work, you need to add the following modules to your package.json:</p>
+
+<ul>
+<li>
+<code>selenium-server-standalone-jar</code> - Module supplying the Selenium stand-alone jar file</li>
+</ul>
+
+<h4>
+<a id="coverage" class="anchor" href="#coverage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coverage</h4>
+
+<p>The Web-Driver decorator supports coverage reporting, supplying the coverage data to Preceptor and merging the coverage reports from client and server.</p>
+
+<h5>
+<a id="configuration-8" class="anchor" href="#configuration-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h5>
+
+<p>The following configuration options are available for code-coverage that is accessible through the decorator configuration as <code>coverage</code>:</p>
+
+<ul>
+<li>
+<code>active</code> {boolean} - Actives the coverage collection and merging (default: false)</li>
+<li>
+<code>coverageVar</code> {string} - Coverage variable in the browser that should be used to collect the coverage-data (default: "<strong>coverage</strong>")</li>
+<li>
+<code>mapping</code> {object[]} - List of path-mapping for client/server mapping. The objects consist of the <code>from</code> and <code>to</code>property, describing the from-to of mapping.</li>
+<li>
+<code>excludes</code> {string[]} - List of paths to exclude (default: ['<strong>/node_modules/</strong>', '<strong>/test/</strong>', '<strong>/tests/</strong>'])</li>
+</ul>
+
+<h2>
+<a id="plugins" class="anchor" href="#plugins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plugins</h2>
+
+<p>It is possible to add your own client- or server-plugin to this WebDriver module by using the <code>AbstractClient</code> or <code>AbstractServer</code> objects which are made available by this module. Afterwards, the plugin needs to be added to the <code>plugins</code> list in the global configuration section of the Preceptor configuration file. See the Preceptor project for more information on how to register a Preceptor plugin.</p>
+
+<p>The following API's are available for server and client plugins (see API documentation for more information):</p>
+
+<h3>
+<a id="client-plugin" class="anchor" href="#client-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client-Plugin</h3>
+
+<ul>
+<li>
+<code>WebDriverManager.AbstractClient</code> - Abstract object, implementing common functionality for WebDriver clients.</li>
+<li>
+<code>manager.getClientList()</code> - Gets a dictionary of available client plugins</li>
+<li>
+<code>manager.hasClient()</code> - Checks existence of a client plugin</li>
+<li>
+<code>manager.getClient()</code> - Gets a specific client plugin by name</li>
+<li>
+<code>manager.registerClient()</code> - Registers a new client plugin</li>
+</ul>
+
+<h3>
+<a id="server-plugin" class="anchor" href="#server-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server-Plugin</h3>
+
+<ul>
+<li>
+<code>WebDriverManager.AbstractServer</code> - Abstract object, implementing common functionality for WebDriver servers.</li>
+<li>
+<code>manager.getServerList()</code> - Gets a dictionary of available server plugins</li>
+<li>
+<code>manager.hasServer()</code> - Checks existence of a server plugin</li>
+<li>
+<code>manager.getServer()</code> - Gets a specific server plugin by name</li>
+<li>
+<code>manager.registerServer()</code> - Registers a new server plugin</li>
+</ul>
+
+<h3>
+<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="s1">'preceptor-webdriver'</span><span class="p">,</span> <span class="s1">'preceptor-webdriver-custom'</span><span class="p">]</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Make sure that this module is listed before your plugin module so that the WebDriver plugin is already registered when your plugin should be registered.</p>
+
+<h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API-Documentation</h2>
+
+<p>Generate the documentation with following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm run docs
+</pre></div>
+
+<p>The documentation will be generated in the <code>docs</code> folder of the module root.</p>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>Run the tests with the following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm run <span class="nb">test</span>
+</pre></div>
+
+<p>The code-coverage will be written to the <code>coverage</code> folder in the module root.</p>
+
+<h2>
+<a id="third-party-libraries" class="anchor" href="#third-party-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Third-party libraries</h2>
+
+<p>The following third-party libraries are used by this module:</p>
+
+<h3>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<ul>
+<li>promise: <a href="https://github.com/then/promise">https://github.com/then/promise</a>
+</li>
+<li>preceptor: <a href="https://github.com/yahoo/preceptor">https://github.com/yahoo/preceptor</a>
+</li>
+<li>preceptor-core: <a href="https://github.com/yahoo/preceptor-core">https://github.com/yahoo/preceptor-core</a>
+</li>
+<li>underscore: <a href="http://underscorejs.org">http://underscorejs.org</a>
+</li>
+<li>minimatch: <a href="https://github.com/isaacs/minimatch">https://github.com/isaacs/minimatch</a>
+</li>
+<li>selenium-server-standalone-jar: <a href="https://github.com/adamhooper/selenium-server-standalone-jar">https://github.com/adamhooper/selenium-server-standalone-jar</a>
+</li>
+</ul>
+
+<h3>
+<a id="dev-dependencies" class="anchor" href="#dev-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dev-Dependencies</h3>
+
+<ul>
+<li>cabbie: <a href="https://github.com/ForbesLindesay/cabbie">https://github.com/ForbesLindesay/cabbie</a>
+</li>
+<li>chai: <a href="http://chaijs.com">http://chaijs.com</a>
+</li>
+<li>istanbul: <a href="https://github.com/gotwarlost/istanbul">https://github.com/gotwarlost/istanbul</a>
+</li>
+<li>mocha: <a href="https://github.com/visionmedia/mocha">https://github.com/visionmedia/mocha</a>
+</li>
+<li>yuidocjs: <a href="https://github.com/yui/yuidoc">https://github.com/yui/yuidoc</a>
+</li>
+</ul>
+
+<h3>
+<a id="optional-dependecies" class="anchor" href="#optional-dependecies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional-Dependecies:</h3>
+
+<ul>
+<li>chromedriver: <a href="https://github.com/giggio/node-chromedriver">https://github.com/giggio/node-chromedriver</a>
+</li>
+<li>phantomjs: <a href="https://github.com/Obvious/phantomjs">https://github.com/Obvious/phantomjs</a>
+</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License</p>
+
+<p>Copyright 2014 Yahoo Inc.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Preceptor-webdriver maintained by <a href="https://github.com/yahoo">yahoo</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-56408730-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
