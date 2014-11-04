@@ -3,6 +3,41 @@ Preceptor-WebDriver (Plugin)
 
 Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testing clients, simpifying the test setup and tear-down for Selenium tests by configuring it in one centralized configuration file. 
 
+[![Build Status](https://secure.travis-ci.org/yahoo/preceptor-webdriver.png)](http://travis-ci.org/yahoo/preceptor-webdriver)
+[![npm version](https://badge.fury.io/js/preceptor-webdriver.svg)](http://badge.fury.io/js/preceptor-webdriver)
+
+[![NPM](https://nodei.co/npm/preceptor-webdriver.png?downloads=true)](https://nodei.co/npm/preceptor-webdriver/)
+
+
+**Table of Contents**
+* [Installation](#installation)
+* [Usage](#usage)
+* [Services](#services)
+    * [WebDriver - Client-Decorator](#webdriver---client-decorator)
+        * [Configuration](#configuration)
+        * [WebDriver Clients](#webdriver-clients)
+            * [Configuration](#configuration-1)
+            * [Cabbie](#cabbie)
+            * [External](#external)
+        * [WebDriver Servers](#webdriver-servers)
+            * [Configuration](#configuration-3)
+            * [BrowserStack](#browserstack)
+            * [ChromeDriver](#chromedriver)
+            * [External](#external-1)
+            * [GhostDriver](#ghostdriver)
+            * [SauceLabs](#saucelabs)
+            * [Selenium Stand-Alone](#selenium)
+        * [Coverage](#coverage)
+* [Plugins](#plugins)
+    * [Client-Plugin](#client-plugin)
+    * [Server-Plugin](#server-plugin)
+    * [Example](#example-3)
+* [API-Documentation](#api-documentation)
+* [Tests](#tests)
+* [Third-party libraries](#third-party-libraries)
+* [License](#license)
+
+
 ##Installation
 
 Install this module with the following command:
@@ -276,9 +311,6 @@ The following API's are available for server and client plugins (see API documen
 }
 ```
 Make sure that this module is listed before your plugin module so that the WebDriver plugin is already registered when your plugin should be registered.
-
-##Versioning
-This is an official Preceptor plugin that will adhere to the Preceptor versioning rules.
 
 ##API-Documentation
 
