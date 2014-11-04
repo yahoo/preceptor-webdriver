@@ -9,6 +9,11 @@ Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testi
 [![NPM](https://nodei.co/npm/preceptor-webdriver.png?downloads=true)](https://nodei.co/npm/preceptor-webdriver/)
 
 
+[API-Documentation](http://yahoo.github.io/preceptor-webdriver/docs/)
+
+[Coverage Report](http://yahoo.github.io/preceptor-webdriver/coverage/lcov-report/)
+
+
 **Table of Contents**
 * [Installation](#installation)
 * [Usage](#usage)
