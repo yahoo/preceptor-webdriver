@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/manager.js - preceptor-webdriver</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="preceptor-webdriver"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.9.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AbstractClient.html">AbstractClient</a></li>
+            
+                <li><a href="../classes/AbstractServer.html">AbstractServer</a></li>
+            
+                <li><a href="../classes/BrowserStackServer.html">BrowserStackServer</a></li>
+            
+                <li><a href="../classes/CabbieClient.html">CabbieClient</a></li>
+            
+                <li><a href="../classes/ChromeDriverServer.html">ChromeDriverServer</a></li>
+            
+                <li><a href="../classes/Coverage.html">Coverage</a></li>
+            
+                <li><a href="../classes/ExternalClient.html">ExternalClient</a></li>
+            
+                <li><a href="../classes/ExternalServer.html">ExternalServer</a></li>
+            
+                <li><a href="../classes/GhostDriverServer.html">GhostDriverServer</a></li>
+            
+                <li><a href="../classes/SauceLabsServer.html">SauceLabsServer</a></li>
+            
+                <li><a href="../classes/SeleniumServer.html">SeleniumServer</a></li>
+            
+                <li><a href="../classes/WebDriverClientDecorator.html">WebDriverClientDecorator</a></li>
+            
+                <li><a href="../classes/WebDriverContainer.html">WebDriverContainer</a></li>
+            
+                <li><a href="../classes/WebDriverManager.html">WebDriverManager</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: lib/manager.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+// Copyright 2014, Yahoo! Inc.
+// Copyrights licensed under the Mit License. See the accompanying LICENSE file for terms.
+
+var Base = require(&#x27;preceptor-core&#x27;).Base;
+var path = require(&#x27;path&#x27;);
+var _ = require(&#x27;underscore&#x27;);
+
+var AbstractClient = require(&#x27;./abstractClient&#x27;);
+var AbstractServer = require(&#x27;./abstractServer&#x27;);
+
+var WebDriverContainer = require(&#x27;./container&#x27;);
+
+/**
+ * @class WebDriverManager
+ * @extends Base
+ *
+ * @property {object} _options Options supplied when created
+ * @property {object} _clientList Registered clients
+ * @property {object} _serverList Registered servers
+ */
+var WebDriverManager = Base.extend(
+
+	/**
+	 * Web-driver manager constructor
+	 *
+	 * @param {object} [options]
+	 * @constructor
+	 */
+	function (options) {
+		this.__super();
+
+		this._options = options || {};
+
+		this._clientList = {};
+		this._serverList = {};
+
+		this.initialize();
+	},
+
+	{
+		/**
+		 * Initializes the instance
+		 *
+		 * @method initialize
+		 */
+		initialize: function () {
+
+			// Initialize registry
+			this._initializeClientRegistry();
+			this._initializeServerRegistry();
+		},
+
+		/**
+		 * Initializes the client registry
+		 *
+		 * @method _initializeClientRegistry
+		 * @private
+		 */
+		_initializeClientRegistry: function () {
+			var defaultElements = [
+				{ name: &#x27;cabbie&#x27;, fileName: &#x27;cabbie&#x27; },
+				{ name: &#x27;external&#x27;, fileName: &#x27;external&#x27; }
+			];
+
+			_.each(defaultElements, function (entry) {
+				entry.path = path.join(__dirname, &#x27;client&#x27;, entry.fileName);
+				entry.fn = require(entry.path);
+			}, this);
+
+			this.registerClientRange(defaultElements);
+		},
+
+		/**
+		 * Initializes the server registry
+		 *
+		 * @method _initializeServerRegistry
+		 * @private
+		 */
+		_initializeServerRegistry: function () {
+			var defaultElements = [
+				{ name: &#x27;browserStack&#x27;, fileName: &#x27;browserStack&#x27; },
+				{ name: &#x27;chromeDriver&#x27;, fileName: &#x27;chromeDriver&#x27; },
+				{ name: &#x27;external&#x27;, fileName: &#x27;external&#x27; },
+				{ name: &#x27;ghostDriver&#x27;, fileName: &#x27;ghostDriver&#x27; },
+				{ name: &#x27;sauceLabs&#x27;, fileName: &#x27;sauceLabs&#x27; },
+				{ name: &#x27;selenium&#x27;, fileName: &#x27;selenium&#x27; }
+			];
+
+			_.each(defaultElements, function (entry) {
+				entry.path = path.join(__dirname, &#x27;server&#x27;, entry.fileName);
+				entry.fn = require(entry.path);
+			}, this);
+
+			this.registerServerRange(defaultElements);
+		},
+
+
+		/**
+		 * Gets the options
+		 *
+		 * @method getOptions
+		 * @return {object}
+		 */
+		getOptions: function () {
+			return this._options;
+		},
+
+
+		/**
+		 * Gets a dictionary of registered clients
+		 *
+		 * @method getClientList
+		 * @return {object}
+		 */
+		getClientList: function () {
+			return this._clientList;
+		},
+
+		/**
+		 * Checks if a client is registered
+		 *
+		 * @method hasClient
+		 * @param {string} name
+		 * @return {boolean}
+		 */
+		hasClient: function (name) {
+			return !!this._clientList[name];
+		},
+
+		/**
+		 * Gets a specific registered client
+		 *
+		 * @method getClient
+		 * @param {string} name
+		 * @return {function}
+		 */
+		getClient: function (name) {
+			return this._clientList[name];
+		},
+
+		/**
+		 * Registers a client
+		 *
+		 * @method registerClient
+		 * @param {string} name
+		 * @param {function} contr
+		 */
+		registerClient: function (name, contr) {
+			this._clientList[name] = contr;
+		},
+
+		/**
+		 * Registers a list of clients
+		 *
+		 * @method registerClientRange
+		 * @param {object[]} list Of &#x60;{ name: &lt;string&gt;, fn: &lt;function&gt; }&#x60;
+		 */
+		registerClientRange: function (list) {
+
+			_.each(list, function (entry) {
+				this.registerClient(entry.name, entry.fn);
+			}, this);
+		},
+
+
+		/**
+		 * Gets a dictionary of registered server
+		 *
+		 * @method getServerList
+		 * @return {object}
+		 */
+		getServerList: function () {
+			return this._serverList;
+		},
+
+		/**
+		 * Checks if a server is registered
+		 *
+		 * @method hasServer
+		 * @param {string} name
+		 * @return {boolean}
+		 */
+		hasServer: function (name) {
+			return !!this._serverList[name];
+		},
+
+		/**
+		 * Gets a specific registered server
+		 *
+		 * @method getServer
+		 * @param {string} name
+		 * @return {function}
+		 */
+		getServer: function (name) {
+			return this._serverList[name];
+		},
+
+		/**
+		 * Registers a server
+		 *
+		 * @method registerServer
+		 * @param {string} name
+		 * @param {function} contr
+		 */
+		registerServer: function (name, contr) {
+			this._serverList[name] = contr;
+		},
+
+		/**
+		 * Registers a list of servers
+		 *
+		 * @method registerServerRange
+		 * @param {object[]} list Of &#x60;{ name: &lt;string&gt;, fn: &lt;function&gt; }&#x60;
+		 */
+		registerServerRange: function (list) {
+
+			_.each(list, function (entry) {
+				this.registerServer(entry.name, entry.fn);
+			}, this);
+		},
+
+
+		/**
+		 * Generates a server and client, hooking everything up
+		 *
+		 * @method generate
+		 * @param {object} options
+		 * @param {object} options.client
+		 * @param {string} [options.client.url]
+		 * @param {object} [options.client.capabilities]
+		 * @param {object} options.server
+		 * @return {WebDriverContainer}
+		 */
+		generate: function (options) {
+
+			var clientOptions = options.client || {},
+				serverOptions = options.server || {},
+				ClientClass,
+				ServerClass,
+				clientInstance,
+				serverInstance;
+
+			// Make sure that the options are consistent
+			if (_.isString(clientOptions)) {
+				clientOptions = { type: clientOptions };
+			}
+			if (_.isString(serverOptions)) {
+				serverOptions = { type: serverOptions };
+			}
+
+			// Create server
+			ServerClass = this.getServer(serverOptions.type || &quot;external&quot;);
+			serverInstance = new ServerClass(serverOptions);
+
+			// Fill server information
+			if (!clientOptions.url) {
+				clientOptions.url = serverInstance.getUrl();
+			}
+			clientOptions.capabilities = serverInstance.augmentCapabilities(clientOptions.capabilities || {});
+
+			// Create client
+			ClientClass = this.getClient(clientOptions.type || &quot;external&quot;);
+			clientInstance = new ClientClass(clientOptions);
+
+			// Return a container with all the information
+			return new WebDriverContainer(clientInstance, serverInstance, options);
+		}
+	},
+
+	{
+		/**
+		 * @property TYPE
+		 * @type {string}
+		 * @static
+		 */
+		TYPE: &#x27;WebDriverManager&#x27;
+	});
+
+// Make abstract classes available to external project
+
+/**
+ * @property AbstractClient
+ * @type {AbstractClient}
+ * @static
+ */
+WebDriverManager.AbstractClient = AbstractClient;
+
+/**
+ * @property AbstractServer
+ * @type {AbstractServer}
+ * @static
+ */
+WebDriverManager.AbstractServer = AbstractServer;
+
+/**
+ * @property version
+ * @type {string}
+ * @static
+ */
+WebDriverManager.version = require(&#x27;../package.json&#x27;).version;
+
+/**
+ * @property loader
+ * @type {function}
+ * @static
+ */
+WebDriverManager.loader = require(&#x27;./plugins/loader&#x27;);
+
+module.exports = WebDriverManager;
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

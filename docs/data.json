@@ -1,0 +1,2204 @@
+{
+    "project": {
+        "name": "preceptor-webdriver",
+        "description": "Webdriver plugin for the Preceptor test-runner and aggregator",
+        "version": "0.9.0"
+    },
+    "files": {
+        "lib/client/cabbie.js": {
+            "name": "lib/client/cabbie.js",
+            "modules": {},
+            "classes": {
+                "CabbieClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/client/external.js": {
+            "name": "lib/client/external.js",
+            "modules": {},
+            "classes": {
+                "ExternalClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/plugins/clientDecorator/webDriver.js": {
+            "name": "lib/plugins/clientDecorator/webDriver.js",
+            "modules": {},
+            "classes": {
+                "WebDriverClientDecorator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/plugins/loader.js": {
+            "name": "lib/plugins/loader.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/browserStack.js": {
+            "name": "lib/server/browserStack.js",
+            "modules": {},
+            "classes": {
+                "BrowserStackServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/chromeDriver.js": {
+            "name": "lib/server/chromeDriver.js",
+            "modules": {},
+            "classes": {
+                "ChromeDriverServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/external.js": {
+            "name": "lib/server/external.js",
+            "modules": {},
+            "classes": {
+                "ExternalServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/ghostDriver.js": {
+            "name": "lib/server/ghostDriver.js",
+            "modules": {},
+            "classes": {
+                "GhostDriverServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/sauceLabs.js": {
+            "name": "lib/server/sauceLabs.js",
+            "modules": {},
+            "classes": {
+                "SauceLabsServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/server/selenium.js": {
+            "name": "lib/server/selenium.js",
+            "modules": {},
+            "classes": {
+                "SeleniumServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/abstractClient.js": {
+            "name": "lib/abstractClient.js",
+            "modules": {},
+            "classes": {
+                "AbstractClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/abstractServer.js": {
+            "name": "lib/abstractServer.js",
+            "modules": {},
+            "classes": {
+                "AbstractServer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/container.js": {
+            "name": "lib/container.js",
+            "modules": {},
+            "classes": {
+                "WebDriverContainer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/coverage.js": {
+            "name": "lib/coverage.js",
+            "modules": {},
+            "classes": {
+                "Coverage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/manager.js": {
+            "name": "lib/manager.js",
+            "modules": {},
+            "classes": {
+                "WebDriverManager": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "CabbieClient": {
+            "name": "CabbieClient",
+            "shortname": "CabbieClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/client/cabbie.js",
+            "line": 8,
+            "extends": "AbstractClient",
+            "is_constructor": 1,
+            "itemtype": "property",
+            "type": "Function"
+        },
+        "ExternalClient": {
+            "name": "ExternalClient",
+            "shortname": "ExternalClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/client/external.js",
+            "line": 7,
+            "extends": "AbstractClient",
+            "is_constructor": 1
+        },
+        "WebDriverClientDecorator": {
+            "name": "WebDriverClientDecorator",
+            "shortname": "WebDriverClientDecorator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 12,
+            "extends": "AbstractClientDecorator",
+            "is_constructor": 1,
+            "itemtype": "property",
+            "type": "Driver"
+        },
+        "BrowserStackServer": {
+            "name": "BrowserStackServer",
+            "shortname": "BrowserStackServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/browserStack.js",
+            "line": 7,
+            "extends": "AbstractServer",
+            "is_constructor": 1
+        },
+        "ChromeDriverServer": {
+            "name": "ChromeDriverServer",
+            "shortname": "ChromeDriverServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/chromeDriver.js",
+            "line": 7,
+            "extends": "AbstractServer",
+            "is_constructor": 1,
+            "itemtype": "property",
+            "type": "Boolean"
+        },
+        "ExternalServer": {
+            "name": "ExternalServer",
+            "shortname": "ExternalServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/external.js",
+            "line": 7,
+            "extends": "AbstractServer",
+            "is_constructor": 1
+        },
+        "GhostDriverServer": {
+            "name": "GhostDriverServer",
+            "shortname": "GhostDriverServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/ghostDriver.js",
+            "line": 8,
+            "extends": "AbstractServer",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "port",
+                            "description": "",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "9516"
+                        }
+                    ]
+                }
+            ],
+            "itemtype": "property",
+            "type": "Process"
+        },
+        "SauceLabsServer": {
+            "name": "SauceLabsServer",
+            "shortname": "SauceLabsServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/sauceLabs.js",
+            "line": 7,
+            "extends": "AbstractServer",
+            "is_constructor": 1
+        },
+        "SeleniumServer": {
+            "name": "SeleniumServer",
+            "shortname": "SeleniumServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/server/selenium.js",
+            "line": 13,
+            "extends": "AbstractServer",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "javaPath",
+                            "description": "",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "port",
+                            "description": "",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "9517"
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "itemtype": "property",
+            "type": "Process"
+        },
+        "AbstractClient": {
+            "name": "AbstractClient",
+            "shortname": "AbstractClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/abstractClient.js",
+            "line": 12,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object",
+            "params": [
+                {
+                    "name": "_instance",
+                    "description": "",
+                    "type": "*"
+                }
+            ]
+        },
+        "AbstractServer": {
+            "name": "AbstractServer",
+            "shortname": "AbstractServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/abstractServer.js",
+            "line": 11,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "WebDriverContainer": {
+            "name": "WebDriverContainer",
+            "shortname": "WebDriverContainer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/container.js",
+            "line": 11,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object",
+            "params": [
+                {
+                    "name": "_client",
+                    "description": "",
+                    "type": "AbstractClient"
+                },
+                {
+                    "name": "_server",
+                    "description": "",
+                    "type": "AbstractServer"
+                }
+            ]
+        },
+        "Coverage": {
+            "name": "Coverage",
+            "shortname": "Coverage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/coverage.js",
+            "line": 10,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "WebDriverManager": {
+            "name": "WebDriverManager",
+            "shortname": "WebDriverManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/manager.js",
+            "line": 13,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object",
+            "params": [
+                {
+                    "name": "_clientList",
+                    "description": "Registered clients",
+                    "type": "Object"
+                },
+                {
+                    "name": "_serverList",
+                    "description": "Registered servers",
+                    "type": "Object"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 19,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 38,
+            "description": "Gets the mode cabbie is run in",
+            "itemtype": "method",
+            "name": "getMode",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 48,
+            "description": "Is cabbie in debug-mode?",
+            "itemtype": "method",
+            "name": "inDebug",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 58,
+            "description": "Is cabbie in http debug-mode?",
+            "itemtype": "method",
+            "name": "inHttpDebug",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 69,
+            "description": "Starts the client",
+            "itemtype": "method",
+            "name": "start",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 82,
+            "description": "Stops the client",
+            "itemtype": "method",
+            "name": "stop",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/cabbie.js",
+            "line": 96,
+            "description": "Load the coverage through the Selenium client",
+            "itemtype": "method",
+            "name": "loadCoverage",
+            "params": [
+                {
+                    "name": "coverageVar",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "With {object} of coverage",
+                "type": "Promise"
+            },
+            "class": "CabbieClient"
+        },
+        {
+            "file": "lib/client/external.js",
+            "line": 16,
+            "description": "Starts the client",
+            "itemtype": "method",
+            "name": "start",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ExternalClient"
+        },
+        {
+            "file": "lib/client/external.js",
+            "line": 26,
+            "description": "Stops the client",
+            "itemtype": "method",
+            "name": "stop",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ExternalClient"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 25,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 46,
+            "description": "Setup of web-driver",
+            "itemtype": "method",
+            "name": "_setup",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 93,
+            "description": "Tear-down of web-driver",
+            "itemtype": "method",
+            "name": "_tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 113,
+            "description": "Collects the coverage-report when requested",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 160,
+            "description": "Filters the coverage report according to excludes",
+            "params": [
+                {
+                    "name": "coverage",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "excludes",
+                    "description": "",
+                    "type": "String[]"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 187,
+            "description": "Maps coverage paths to a new path",
+            "params": [
+                {
+                    "name": "coverage",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "mappingList",
+                    "description": "",
+                    "type": "Object[]"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 220,
+            "description": "Gets the web-driver manager",
+            "itemtype": "method",
+            "name": "getWebDriverManager",
+            "return": {
+                "description": "",
+                "type": "WebDriverManager"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 231,
+            "description": "Should tests be run in isolation?",
+            "itemtype": "method",
+            "name": "inIsolation",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 242,
+            "description": "Processes the begin of the testing environment",
+            "itemtype": "method",
+            "name": "processBefore",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 256,
+            "description": "Processes the end of the testing environment",
+            "itemtype": "method",
+            "name": "processAfter",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 270,
+            "description": "Processes the beginning of a test",
+            "itemtype": "method",
+            "name": "processBeforeTest",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/clientDecorator/webDriver.js",
+            "line": 284,
+            "description": "Processes the ending of a test",
+            "itemtype": "method",
+            "name": "processAfterTest",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "WebDriverClientDecorator"
+        },
+        {
+            "file": "lib/plugins/loader.js",
+            "line": 3,
+            "description": "Method to load all plugins",
+            "itemtype": "method",
+            "name": "_pluginLoader",
+            "params": [
+                {
+                    "name": "manager",
+                    "description": "",
+                    "type": "PreceptorManager"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 16,
+            "description": "Gets the user for browser-stack",
+            "itemtype": "method",
+            "name": "getUser",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 26,
+            "description": "Gets the access-key for browser-stack",
+            "itemtype": "method",
+            "name": "getAccessKey",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 37,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 48,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 59,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/browserStack.js",
+            "line": 69,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "BrowserStackServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 19,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 32,
+            "description": "Gets the name of the web-driver",
+            "itemtype": "method",
+            "name": "getName",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 43,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 58,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 73,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/chromeDriver.js",
+            "line": 83,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "ChromeDriverServer"
+        },
+        {
+            "file": "lib/server/external.js",
+            "line": 16,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ExternalServer"
+        },
+        {
+            "file": "lib/server/external.js",
+            "line": 28,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ExternalServer"
+        },
+        {
+            "file": "lib/server/external.js",
+            "line": 39,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "ExternalServer"
+        },
+        {
+            "file": "lib/server/external.js",
+            "line": 49,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "ExternalServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 22,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 37,
+            "description": "Gets the port of the server",
+            "itemtype": "method",
+            "name": "getPort",
+            "return": {
+                "description": "",
+                "type": "Int"
+            },
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 48,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 68,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 85,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/ghostDriver.js",
+            "line": 95,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "GhostDriverServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 15,
+            "description": "Gets the user for sauce-labs",
+            "itemtype": "method",
+            "name": "getUser",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 25,
+            "description": "Gets the access-key for sauce-labs",
+            "itemtype": "method",
+            "name": "getAccessKey",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 36,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 47,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 58,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/sauceLabs.js",
+            "line": 68,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "SauceLabsServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 27,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 41,
+            "description": "Finds an installed java instance",
+            "itemtype": "method",
+            "name": "_findJava",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 69,
+            "description": "Gets the path to the java binary",
+            "itemtype": "method",
+            "name": "getJavaPath",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 79,
+            "description": "Gets the port of the server",
+            "itemtype": "method",
+            "name": "getPort",
+            "return": {
+                "description": "",
+                "type": "Int"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 90,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 113,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 134,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/server/selenium.js",
+            "line": 144,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "SeleniumServer"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 21,
+            "description": "Web-driver client constructor",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 37,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 52,
+            "description": "Validates the data given",
+            "itemtype": "method",
+            "name": "validate",
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 75,
+            "description": "Augments the data with default values",
+            "itemtype": "method",
+            "name": "augment",
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 85,
+            "description": "Gets the client-driver instance",
+            "itemtype": "method",
+            "name": "getInstance",
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 95,
+            "description": "Gets the options",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 105,
+            "description": "Gets the type of server",
+            "itemtype": "method",
+            "name": "getType",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 116,
+            "description": "Gets the url of the server",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 126,
+            "description": "Sets the url of the server",
+            "itemtype": "method",
+            "name": "setUrl",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 137,
+            "description": "Gets the capabilities",
+            "itemtype": "method",
+            "name": "getCapabilities",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 147,
+            "description": "Gets the server configuration",
+            "itemtype": "method",
+            "name": "getConfiguration",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 158,
+            "description": "Starts the client",
+            "itemtype": "method",
+            "name": "start",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 168,
+            "description": "Stops the client",
+            "itemtype": "method",
+            "name": "stop",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 179,
+            "description": "Load the coverage through the Selenium client",
+            "itemtype": "method",
+            "name": "loadCoverage",
+            "params": [
+                {
+                    "name": "coverageVar",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "With {object}",
+                "type": "Promise"
+            },
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 191,
+            "description": "Retrieves the coverage script for gather coverage data",
+            "itemtype": "method",
+            "name": "_coverageScript",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractClient.js",
+            "line": 204,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "AbstractClient"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 19,
+            "description": "Web-driver server constructor",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "timeOut",
+                            "description": "",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "15000"
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 35,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 50,
+            "description": "Validates the data given",
+            "itemtype": "method",
+            "name": "validate",
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 68,
+            "description": "Augments the data with default values",
+            "itemtype": "method",
+            "name": "augment",
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 78,
+            "description": "Gets the options",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 88,
+            "description": "Gets the type of server",
+            "itemtype": "method",
+            "name": "getType",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 98,
+            "description": "Gets the server configuration",
+            "itemtype": "method",
+            "name": "getConfiguration",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 108,
+            "description": "Gets the timeout in milliseconds",
+            "itemtype": "method",
+            "name": "getTimeOut",
+            "return": {
+                "description": "",
+                "type": "Int"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 119,
+            "description": "Startup driver",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 130,
+            "description": "Shutdown driver",
+            "itemtype": "method",
+            "name": "tearDown",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 141,
+            "description": "Gets the url to the web-driver instance",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 151,
+            "description": "Augmenting capabilities supplied to the driver",
+            "itemtype": "method",
+            "name": "augmentCapabilities",
+            "params": [
+                {
+                    "name": "capabilities",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 163,
+            "description": "Wait for the server to be available",
+            "itemtype": "method",
+            "name": "_waitForServer",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/abstractServer.js",
+            "line": 211,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "AbstractServer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 21,
+            "description": "Web-driver manager constructor",
+            "params": [
+                {
+                    "name": "client",
+                    "description": "",
+                    "type": "AbstractClient"
+                },
+                {
+                    "name": "server",
+                    "description": "",
+                    "type": "AbstractServer"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "isolation",
+                            "description": "",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 41,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 56,
+            "description": "Validates the data given",
+            "itemtype": "method",
+            "name": "validate",
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 70,
+            "description": "Augments the web-driver data with default data",
+            "itemtype": "method",
+            "name": "augment",
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 80,
+            "description": "Gets the options",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 90,
+            "description": "Is the web-driver in isolation mode?",
+            "itemtype": "method",
+            "name": "inIsolation",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 100,
+            "description": "Get coverage object",
+            "itemtype": "method",
+            "name": "getCoverage",
+            "return": {
+                "description": "",
+                "type": "Coverage"
+            },
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 111,
+            "description": "Gets the client",
+            "itemtype": "method",
+            "name": "getClient",
+            "return": {
+                "description": "",
+                "type": "AbstractClient"
+            },
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 121,
+            "description": "Gets the server",
+            "itemtype": "method",
+            "name": "getServer",
+            "return": {
+                "description": "",
+                "type": "AbstractServer"
+            },
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/container.js",
+            "line": 133,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "WebDriverContainer"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 18,
+            "description": "Coverage constructor",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 33,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 48,
+            "description": "Validates the data given",
+            "itemtype": "method",
+            "name": "validate",
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 65,
+            "description": "Augments the data with default values",
+            "itemtype": "method",
+            "name": "augment",
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 75,
+            "description": "Gets the client-driver instance",
+            "itemtype": "method",
+            "name": "getInstance",
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 85,
+            "description": "Gets the options",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 96,
+            "description": "Is coverage active?",
+            "itemtype": "method",
+            "name": "isActive",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 106,
+            "description": "Get coverage variable",
+            "itemtype": "method",
+            "name": "getCoverageVar",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 116,
+            "description": "Has mapping turned on?",
+            "itemtype": "method",
+            "name": "hasMapping",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 126,
+            "description": "Get mapping",
+            "itemtype": "method",
+            "name": "getMapping",
+            "return": {
+                "description": "Of `{from:<string>, to:<string>}`",
+                "type": "Object[]"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 136,
+            "description": "Get excludes for coverage",
+            "itemtype": "method",
+            "name": "getExcludes",
+            "return": {
+                "description": "",
+                "type": "String[]"
+            },
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/coverage.js",
+            "line": 148,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "Coverage"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 23,
+            "description": "Web-driver manager constructor",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1,
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 41,
+            "description": "Initializes the instance",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 53,
+            "description": "Initializes the client registry",
+            "itemtype": "method",
+            "name": "_initializeClientRegistry",
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 73,
+            "description": "Initializes the server registry",
+            "itemtype": "method",
+            "name": "_initializeServerRegistry",
+            "access": "private",
+            "tagname": "",
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 98,
+            "description": "Gets the options",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 109,
+            "description": "Gets a dictionary of registered clients",
+            "itemtype": "method",
+            "name": "getClientList",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 119,
+            "description": "Checks if a client is registered",
+            "itemtype": "method",
+            "name": "hasClient",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 130,
+            "description": "Gets a specific registered client",
+            "itemtype": "method",
+            "name": "getClient",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 141,
+            "description": "Registers a client",
+            "itemtype": "method",
+            "name": "registerClient",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "contr",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 152,
+            "description": "Registers a list of clients",
+            "itemtype": "method",
+            "name": "registerClientRange",
+            "params": [
+                {
+                    "name": "list",
+                    "description": "Of `{ name: <string>, fn: <function> }`",
+                    "type": "Object[]"
+                }
+            ],
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 166,
+            "description": "Gets a dictionary of registered server",
+            "itemtype": "method",
+            "name": "getServerList",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 176,
+            "description": "Checks if a server is registered",
+            "itemtype": "method",
+            "name": "hasServer",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 187,
+            "description": "Gets a specific registered server",
+            "itemtype": "method",
+            "name": "getServer",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 198,
+            "description": "Registers a server",
+            "itemtype": "method",
+            "name": "registerServer",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "contr",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 209,
+            "description": "Registers a list of servers",
+            "itemtype": "method",
+            "name": "registerServerRange",
+            "params": [
+                {
+                    "name": "list",
+                    "description": "Of `{ name: <string>, fn: <function> }`",
+                    "type": "Object[]"
+                }
+            ],
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 223,
+            "description": "Generates a server and client, hooking everything up",
+            "itemtype": "method",
+            "name": "generate",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "client",
+                            "description": "",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "url",
+                                    "description": "",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "capabilities",
+                                    "description": "",
+                                    "type": "Object",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "server",
+                            "description": "",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "WebDriverContainer"
+            },
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 271,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 281,
+            "itemtype": "property",
+            "name": "AbstractClient",
+            "type": "{AbstractClient}",
+            "static": 1,
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 288,
+            "itemtype": "property",
+            "name": "AbstractServer",
+            "type": "{AbstractServer}",
+            "static": 1,
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 295,
+            "itemtype": "property",
+            "name": "version",
+            "type": "{string}",
+            "static": 1,
+            "class": "WebDriverManager"
+        },
+        {
+            "file": "lib/manager.js",
+            "line": 302,
+            "itemtype": "property",
+            "name": "loader",
+            "type": "{function}",
+            "static": 1,
+            "class": "WebDriverManager"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/plugins/clientDecorator/webDriver.js:113"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/plugins/clientDecorator/webDriver.js:160"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/plugins/clientDecorator/webDriver.js:187"
+        },
+        {
+            "message": "Missing item type\nCollects the coverage-report when requested",
+            "line": " lib/plugins/clientDecorator/webDriver.js:113"
+        },
+        {
+            "message": "Missing item type\nFilters the coverage report according to excludes",
+            "line": " lib/plugins/clientDecorator/webDriver.js:160"
+        },
+        {
+            "message": "Missing item type\nMaps coverage paths to a new path",
+            "line": " lib/plugins/clientDecorator/webDriver.js:187"
+        },
+        {
+            "message": "Missing item type\nWeb-driver client constructor",
+            "line": " lib/abstractClient.js:21"
+        },
+        {
+            "message": "Missing item type\nWeb-driver server constructor",
+            "line": " lib/abstractServer.js:19"
+        },
+        {
+            "message": "Missing item type\nWeb-driver manager constructor",
+            "line": " lib/container.js:21"
+        },
+        {
+            "message": "Missing item type\nCoverage constructor",
+            "line": " lib/coverage.js:18"
+        },
+        {
+            "message": "Missing item type\nWeb-driver manager constructor",
+            "line": " lib/manager.js:23"
+        }
+    ]
+}

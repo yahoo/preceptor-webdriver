@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WebDriverManager - preceptor-webdriver</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="preceptor-webdriver"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.9.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AbstractClient.html">AbstractClient</a></li>
+            
+                <li><a href="../classes/AbstractServer.html">AbstractServer</a></li>
+            
+                <li><a href="../classes/BrowserStackServer.html">BrowserStackServer</a></li>
+            
+                <li><a href="../classes/CabbieClient.html">CabbieClient</a></li>
+            
+                <li><a href="../classes/ChromeDriverServer.html">ChromeDriverServer</a></li>
+            
+                <li><a href="../classes/Coverage.html">Coverage</a></li>
+            
+                <li><a href="../classes/ExternalClient.html">ExternalClient</a></li>
+            
+                <li><a href="../classes/ExternalServer.html">ExternalServer</a></li>
+            
+                <li><a href="../classes/GhostDriverServer.html">GhostDriverServer</a></li>
+            
+                <li><a href="../classes/SauceLabsServer.html">SauceLabsServer</a></li>
+            
+                <li><a href="../classes/SeleniumServer.html">SeleniumServer</a></li>
+            
+                <li><a href="../classes/WebDriverClientDecorator.html">WebDriverClientDecorator</a></li>
+            
+                <li><a href="../classes/WebDriverContainer.html">WebDriverContainer</a></li>
+            
+                <li><a href="../classes/WebDriverManager.html">WebDriverManager</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>WebDriverManager Class</h1>
+<div class="box meta">
+    
+
+    
+        <div class="extends">
+            Extends Base
+        </div>
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/lib_manager.js.html#l13"><code>lib&#x2F;manager.js:13</code></a>
+        </div>
+    
+
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method private">
+                                <a href="#method__initializeClientRegistry">_initializeClientRegistry</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method__initializeServerRegistry">_initializeServerRegistry</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_generate">generate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getClient">getClient</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getClientList">getClientList</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getOptions">getOptions</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getServer">getServer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getServerList">getServerList</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_hasClient">hasClient</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_hasServer">hasServer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initialize">initialize</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerClient">registerClient</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerClientRange">registerClientRange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerServer">registerServer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerServerRange">registerServerRange</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#property_AbstractClient">AbstractClient</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_AbstractServer">AbstractServer</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_loader">loader</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_TYPE">TYPE</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_version">version</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__initializeClientRegistry" class="method item private">
+    <h3 class="name"><code>_initializeClientRegistry</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l53"><code>lib&#x2F;manager.js:53</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initializes the client registry</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initializeServerRegistry" class="method item private">
+    <h3 class="name"><code>_initializeServerRegistry</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l73"><code>lib&#x2F;manager.js:73</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initializes the server registry</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_generate" class="method item">
+    <h3 class="name"><code>generate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>options</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/WebDriverContainer.html" class="crosslink">WebDriverContainer</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l223"><code>lib&#x2F;manager.js:223</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Generates a server and client, hooking everything up</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">options</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">client</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                
+                                    <ul class="params-list">
+                                        
+                                        <li class="param">
+                                            
+                                                <code class="param-name optional">[url]</code>
+                                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                                            
+
+                                            <div class="param-description">
+                                                
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="param">
+                                            
+                                                <code class="param-name optional">[capabilities]</code>
+                                                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                                            
+
+                                            <div class="param-description">
+                                                
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name">server</code>
+                                    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                                
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/WebDriverContainer.html" class="crosslink">WebDriverContainer</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getClient" class="method item">
+    <h3 class="name"><code>getClient</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l130"><code>lib&#x2F;manager.js:130</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a specific registered client</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getClientList" class="method item">
+    <h3 class="name"><code>getClientList</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l109"><code>lib&#x2F;manager.js:109</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a dictionary of registered clients</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getOptions" class="method item">
+    <h3 class="name"><code>getOptions</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l98"><code>lib&#x2F;manager.js:98</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets the options</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getServer" class="method item">
+    <h3 class="name"><code>getServer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l187"><code>lib&#x2F;manager.js:187</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a specific registered server</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getServerList" class="method item">
+    <h3 class="name"><code>getServerList</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l166"><code>lib&#x2F;manager.js:166</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a dictionary of registered server</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_hasClient" class="method item">
+    <h3 class="name"><code>hasClient</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l119"><code>lib&#x2F;manager.js:119</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Checks if a client is registered</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_hasServer" class="method item">
+    <h3 class="name"><code>hasServer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l176"><code>lib&#x2F;manager.js:176</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Checks if a server is registered</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_initialize" class="method item">
+    <h3 class="name"><code>initialize</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l41"><code>lib&#x2F;manager.js:41</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initializes the instance</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerClient" class="method item">
+    <h3 class="name"><code>registerClient</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>contr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l141"><code>lib&#x2F;manager.js:141</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Registers a client</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">contr</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerClientRange" class="method item">
+    <h3 class="name"><code>registerClientRange</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>list</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l152"><code>lib&#x2F;manager.js:152</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Registers a list of clients</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">list</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Of <code>{ name: &lt;string&gt;, fn: &lt;function&gt; }</code></p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerServer" class="method item">
+    <h3 class="name"><code>registerServer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>contr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l198"><code>lib&#x2F;manager.js:198</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Registers a server</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">contr</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerServerRange" class="method item">
+    <h3 class="name"><code>registerServerRange</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>list</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l209"><code>lib&#x2F;manager.js:209</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Registers a list of servers</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">list</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Of <code>{ name: &lt;string&gt;, fn: &lt;function&gt; }</code></p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_AbstractClient" class="property item">
+    <h3 class="name"><code>AbstractClient</code></h3>
+    <span class="type"><a href="../classes/AbstractClient.html" class="crosslink">AbstractClient</a></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l281"><code>lib&#x2F;manager.js:281</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_AbstractServer" class="property item">
+    <h3 class="name"><code>AbstractServer</code></h3>
+    <span class="type"><a href="../classes/AbstractServer.html" class="crosslink">AbstractServer</a></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l288"><code>lib&#x2F;manager.js:288</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_loader" class="property item">
+    <h3 class="name"><code>loader</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l302"><code>lib&#x2F;manager.js:302</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_TYPE" class="property item">
+    <h3 class="name"><code>TYPE</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l271"><code>lib&#x2F;manager.js:271</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_version" class="property item">
+    <h3 class="name"><code>version</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_manager.js.html#l295"><code>lib&#x2F;manager.js:295</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
