@@ -1,6 +1,6 @@
 {
   "name": "preceptor-webdriver",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Webdriver plugin for the Preceptor test-runner and aggregator",
   "license": "MIT",
   "main": "index.js",
