@@ -39,7 +39,7 @@
     "underscore": "1.7.0"
   },
   "devDependencies": {
-    "cabbie": "https://github.com/marcelerz/cabbie.git#master",
+    "cabbie-alpha": "~1.0.0",
     "chai": "1.9.1",
     "coveralls": "2.11.2",
     "mocha": "1.21.4",
