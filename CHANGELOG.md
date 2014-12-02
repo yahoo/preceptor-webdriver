@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+v0.9.5 - 12/02/14
+* Bugfixes: Coverage
+
 v0.9.4 - 12/02/14
 * Updated dependencies for Preceptor
 

@@ -1,6 +1,6 @@
 {
   "name": "preceptor-webdriver",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Webdriver plugin for the Preceptor test-runner and aggregator",
   "license": "MIT",
   "main": "index.js",
@@ -32,7 +32,7 @@
   "dependencies": {
     "istanbul": "0.3.2",
     "minimatch": "1.0.0",
-    "preceptor": "~0.9.5",
+    "preceptor": "~0.9.6",
     "preceptor-core": "0.9.3",
     "selenium-server-standalone-jar": "2.43.1",
     "promise": "6.0.0",
