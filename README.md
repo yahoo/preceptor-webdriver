@@ -351,6 +351,7 @@ The following third-party libraries are used by this module:
 * istanbul: https://github.com/gotwarlost/istanbul
 * mocha: https://github.com/visionmedia/mocha
 * yuidocjs: https://github.com/yui/yuidoc
+* sinon: http://sinonjs.org
 
 ###Optional-Dependecies:
 * chromedriver: https://github.com/giggio/node-chromedriver
