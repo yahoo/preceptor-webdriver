@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+v0.9.6 - 12/11/14
+* Bugfix: Accepting custom url for external server 
+
 v0.9.5 - 12/02/14
 * Bugfixes: Coverage
 
