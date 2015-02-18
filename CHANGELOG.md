@@ -6,6 +6,7 @@ v0.9.7
 * Hardening of Preceptor
 * Add helpful error messages before failing
 * Use safe require for optional modules
+* Bugfix: Let server set url late - needed for services with server-pool
 
 v0.9.6 - 12/11/14
 * Bugfix: Accepting custom url for external server 
