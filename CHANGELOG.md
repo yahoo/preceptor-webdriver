@@ -3,6 +3,9 @@ CHANGELOG
 
 v0.9.7
 * Added support for browserName, browser, browserVersion, version, platform for browser identifier
+* Hardening of Preceptor
+* Add helpful error messages before failing
+* Use safe require for optional modules
 
 v0.9.6 - 12/11/14
 * Bugfix: Accepting custom url for external server 
