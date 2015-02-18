@@ -338,22 +338,23 @@ The code-coverage will be written to the ```coverage``` folder in the module roo
 The following third-party libraries are used by this module:
 
 ###Dependencies
-* promise: https://github.com/then/promise
+* istanbul: https://github.com/gotwarlost/istanbul
+* minimatch: https://github.com/isaacs/minimatch
 * preceptor: https://github.com/yahoo/preceptor
 * preceptor-core: https://github.com/yahoo/preceptor-core
-* underscore: http://underscorejs.org
-* minimatch: https://github.com/isaacs/minimatch
 * selenium-server-standalone-jar: https://github.com/adamhooper/selenium-server-standalone-jar
+* promise: https://github.com/then/promise
+* underscore: http://underscorejs.org
 
 ###Dev-Dependencies
 * cabbie: https://github.com/ForbesLindesay/cabbie
 * chai: http://chaijs.com
-* istanbul: https://github.com/gotwarlost/istanbul
+* coveralls: https://github.com/cainus/node-coveralls
 * mocha: https://github.com/visionmedia/mocha
-* yuidocjs: https://github.com/yui/yuidoc
 * sinon: http://sinonjs.org
+* yuidocjs: https://github.com/yui/yuidoc
 
-###Optional-Dependecies:
+###Optional-Dependencies:
 * chromedriver: https://github.com/giggio/node-chromedriver
 * phantomjs: https://github.com/Obvious/phantomjs
 

@@ -32,8 +32,8 @@
   "dependencies": {
     "istanbul": "0.3.2",
     "minimatch": "1.0.0",
-    "preceptor": "~0.9.6",
-    "preceptor-core": "0.9.3",
+    "preceptor": "~0.9.8",
+    "preceptor-core": "0.9.4",
     "selenium-server-standalone-jar": "2.43.1",
     "promise": "6.0.0",
     "underscore": "1.7.0"
