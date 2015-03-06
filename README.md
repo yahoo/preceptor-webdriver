@@ -3,16 +3,20 @@ Preceptor-WebDriver (Plugin)
 
 Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testing clients, simpifying the test setup and tear-down for Selenium tests by configuring it in one centralized configuration file. 
 
-[![Build Status](https://secure.travis-ci.org/yahoo/preceptor-webdriver.png)](http://travis-ci.org/yahoo/preceptor-webdriver)
-[![npm version](https://badge.fury.io/js/preceptor-webdriver.svg)](http://badge.fury.io/js/preceptor-webdriver)
+[![Build Status](https://img.shields.io/travis/yahoo/preceptor-webdriver.svg)](http://travis-ci.org/yahoo/preceptor-webdriver)
+[![Coveralls Coverage](https://img.shields.io/coveralls/yahoo/preceptor-webdriver.svg)](https://coveralls.io/r/yahoo/preceptor-webdriver)
+[![Code Climate Grade](https://img.shields.io/codeclimate/github/yahoo/preceptor-webdriver.svg)](https://codeclimate.com/github/yahoo/preceptor-webdriver)
 
-[![NPM](https://nodei.co/npm/preceptor-webdriver.png?downloads=true)](https://nodei.co/npm/preceptor-webdriver/)
+[![NPM version](https://badge.fury.io/js/preceptor-webdriver.svg)](https://www.npmjs.com/package/preceptor-webdriver)
+[![NPM License](https://img.shields.io/npm/l/preceptor-webdriver.svg)](https://www.npmjs.com/package/preceptor-webdriver)
 
+[![NPM](https://nodei.co/npm/preceptor-webdriver.png?downloads=true&stars=true)](https://www.npmjs.com/package/preceptor-webdriver)
+[![NPM](https://nodei.co/npm-dl/preceptor-webdriver.png?months=3&height=2)](https://www.npmjs.com/package/preceptor-webdriver)
 
-[API-Documentation](http://yahoo.github.io/preceptor-webdriver/docs/)
+[![Coverage Report](https://img.shields.io/badge/Coverage_Report-Available-blue.svg)](http://yahoo.github.io/preceptor-webdriver/coverage/lcov-report/)
+[![API Documentation](https://img.shields.io/badge/API_Documentation-Available-blue.svg)](http://yahoo.github.io/preceptor-webdriver/docs/)
 
-[Coverage Report](http://yahoo.github.io/preceptor-webdriver/coverage/lcov-report/)
-
+[![Gitter Support](https://img.shields.io/badge/Support-Gitter_IM-yellow.svg)](https://gitter.im/preceptorjs/support)
 
 **Table of Contents**
 * [Installation](#installation)
