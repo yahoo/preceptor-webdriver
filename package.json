@@ -34,7 +34,7 @@
     "minimatch": "1.0.0",
     "preceptor": "~0.9.6",
     "preceptor-core": "0.9.3",
-    "selenium-server-standalone-jar": "2.43.1",
+    "selenium-server-standalone-jar": "^2.45.0",
     "promise": "6.0.0",
     "underscore": "1.7.0"
   },
