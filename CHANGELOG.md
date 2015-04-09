@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+v0.9.7 - 04/08/15
+* Update versions
+* Remove Node 0.8 support
+* Add support for Node 0.12 and IO.js
+
 v0.9.6 - 12/11/14
 * Bugfix: Accepting custom url for external server 
 
