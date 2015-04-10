@@ -17,6 +17,7 @@ Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testi
 **Table of Contents**
 * [Installation](#installation)
 * [Usage](#usage)
+* [Client-API](#client-api)
 * [Services](#services)
     * [WebDriver - Client-Decorator](#webdriver---client-decorator)
         * [Configuration](#configuration)
@@ -104,6 +105,49 @@ Afterwards, the Web-Driver client-decorator plugin can be configured:
   
 	// ...
 }
+```
+
+##Client-API
+
+Preceptor-WebDriver injects an object (```PRECEPTOR_WEBDRIVER```) into the gloabl scope that holds WebDriver instance information.
+
+* ```PRECEPTOR_WEBDRIVER.driver``` - WebDriver client instance (i.e. Cabbie/Taxi driver instance)
+* ```PRECEPTOR_WEBDRIVER.browserName``` - Name of the current browser. This is retrieved from the Selenium capabilities object when connecting to the Selenium server.
+* ```PRECEPTOR_WEBDRIVER.browserVersion``` - Version of the current browser. This is retrieved from the Selenium capabilities object when connecting to the Selenium server.
+* ```PRECEPTOR_WEBDRIVER.browser``` - Browser identifier that combines multiple infos about the browser, including name and version.
+* ```PRECEPTOR_WEBDRIVER.clientName``` - Name of the WebDriver client. (i.e. Cabbie)
+* ```PRECEPTOR_WEBDRIVER.serverName``` - Name of the WebDriver server. (i.e. SauceLabs)
+* ```PRECEPTOR_WEBDRIVER.collectCoverage``` - Function that should be triggered when Preceptor should collect coverage reports. Call this before you move from one page to another to avoid loosing coverage data. Integrate this into the navigation APIs of the client to gather the data before a page is refreshed.
+
+###Examples
+
+To get the driver, simply use the driver given in the global obejct:
+
+```javascript
+var driver = PRECEPTOR_WEBDRIVER.driver;
+
+var browser = driver.browser();
+var activeWindow = browser.activeWindow();
+var submitButton = activeWindow.getElement('#submit_button')
+
+submitButton.mouse().click();
+```
+
+Usually, you can easily integrate the coverage collection into the clients:
+
+```javascript
+var driver = PRECEPTOR_WEBDRIVER.driver;
+
+var browser = driver.browser();
+var activeWindow = browser.activeWindow();
+var navigator = activeWindow.navigator();
+
+var previousNavigateTo = navigator.navigateTo;
+navigator.navigateTo = function () {
+	PRECEPTOR_WEBDRIVER.collectCoverage();
+	return previousNavigateTo.apply(this, arguments);
+};
+
 ```
 
 ##Services
