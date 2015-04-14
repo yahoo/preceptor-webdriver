@@ -366,4 +366,4 @@ The following third-party libraries are used by this module:
 
 The MIT License
 
-Copyright 2014 Yahoo Inc.
+Copyright 2014-2015 Yahoo Inc.
