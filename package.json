@@ -1,49 +1,51 @@
 {
-  "name": "preceptor-webdriver",
-  "version": "0.9.7",
-  "description": "Webdriver plugin for the Preceptor test-runner and aggregator",
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "test": "istanbul cover -- _mocha --reporter spec",
-    "docs": "yuidoc ."
-  },
-  "homepage": "https://github.com/yahoo/preceptor-wedriver",
-  "bugs": "https://github.com/yahoo/preceptor-webdriver/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yahoo/preceptor-webdriver.git"
-  },
-  "keywords": [
-    "testing",
-    "preceptor",
-    "webdriver",
-    "cabbie",
-    "saucelabs",
-    "browserstack",
-    "ghostdriver",
-    "chromedriver",
-    "selenium"
-  ],
-  "author": {
-    "name": "Marcel Erz",
-    "email": "erz@yahoo-inc.com"
-  },
-  "dependencies": {
-    "istanbul": "0.3.2",
-    "minimatch": "1.0.0",
-    "preceptor": "~0.9.8",
-    "preceptor-core": "0.9.4",
-    "selenium-server-standalone-jar": "2.43.1",
-    "promise": "6.0.0",
-    "underscore": "1.7.0"
-  },
-  "devDependencies": {
-    "cabbie-alpha": "1.0.0",
-    "chai": "1.9.1",
-    "coveralls": "2.11.2",
-    "mocha": "1.21.4",
-    "sinon": "1.12.1",
-    "yuidocjs": "0.3.50"
-  }
+	"name": "preceptor-webdriver",
+	"version": "0.10.0",
+	"description": "Webdriver plugin for the Preceptor test-runner and aggregator",
+	"license": "MIT",
+	"main": "index.js",
+	"homepage": "https://github.com/yahoo/preceptor-wedriver",
+	"bugs": "https://github.com/yahoo/preceptor-webdriver/issues",
+	"author": {
+		"name": "Marcel Erz",
+		"email": "erz@yahoo-inc.com",
+		"url": "http://www.marcelerz.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yahoo/preceptor-webdriver.git"
+	},
+	"keywords": [
+		"testing",
+		"preceptor",
+		"webdriver",
+		"cabbie",
+		"saucelabs",
+		"browserstack",
+		"ghostdriver",
+		"chromedriver",
+		"selenium"
+	],
+	"scripts": {
+		"test": "istanbul cover -- _mocha --reporter spec",
+		"docs": "yuidoc ."
+	},
+	"dependencies": {
+		"preceptor": "~0.9.8",
+		"preceptor-core": "0.9.4",
+		"istanbul": "0.3.2",
+		"minimatch": "1.0.0",
+		"selenium-server-standalone-jar": "2.43.1",
+		"promise": "6.0.0",
+		"underscore": "1.7.0"
+	},
+	"devDependencies": {
+		"cabbie-alpha": "1.0.0",
+		"chai": "1.9.2",
+		"coveralls": "2.11.2",
+		"mocha": "1.21.4",
+		"sinon": "1.12.2",
+		"sinon-chai": "2.7.0",
+		"yuidocjs": "0.3.50"
+	}
 }
