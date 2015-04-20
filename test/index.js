@@ -228,7 +228,7 @@ describe('Preceptor-WebDriver', function () {
 
 						options = {
 							"client": {
-								"type": "cabbie"
+								"type": "taxi"
 							},
 							"coverage": {
 								"mapping": {}
@@ -249,7 +249,7 @@ describe('Preceptor-WebDriver', function () {
 
 						options = [{
 							"client": {
-								"type": "cabbie"
+								"type": "taxi"
 							},
 							"coverage": {
 								"mapping": {}
@@ -290,7 +290,7 @@ describe('Preceptor-WebDriver', function () {
 
 							options = {
 								"client": {
-									"type": "cabbie"
+									"type": "taxi"
 								},
 								"coverage": {
 									"mapping": {}
@@ -309,7 +309,7 @@ describe('Preceptor-WebDriver', function () {
 
 							options = {
 								"client": {
-									"type": "cabbie"
+									"type": "taxi"
 								},
 								"server": {
 									"type": "selenium"
@@ -340,7 +340,7 @@ describe('Preceptor-WebDriver', function () {
 
 							options = {
 								"client": {
-									"type": "cabbie"
+									"type": "taxi"
 								},
 								"server": [
 									{
@@ -362,7 +362,7 @@ describe('Preceptor-WebDriver', function () {
 
 							expect(result[0]).to.be.deep.equal({
 								"client": {
-									"type": "cabbie"
+									"type": "taxi"
 								},
 								"server": {
 									"type": "selenium"
@@ -374,7 +374,7 @@ describe('Preceptor-WebDriver', function () {
 
 							expect(result[1]).to.be.deep.equal({
 								"client": {
-									"type": "cabbie"
+									"type": "taxi"
 								},
 								"server": {
 									"type": "phantomjs"

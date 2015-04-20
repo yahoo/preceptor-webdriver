@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+v0.9.8 
+* Add support for Taxi
+
 v0.9.7 - 04/08/15
 * Update versions
 * Remove Node 0.8 support

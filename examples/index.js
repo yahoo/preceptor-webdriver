@@ -7,7 +7,7 @@ var webDriverManager = new WebDriverManager();
 var container = webDriverManager.generate({
 	"isolation": false,
 	"client": {
-		"type": "cabbie",
+		"type": "taxi",
 		"capabilities": {
 			"browserName": "firefox"
 		},

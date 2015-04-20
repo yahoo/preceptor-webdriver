@@ -23,6 +23,7 @@ Preceptor client-decorator plugin to inject WebDriver (Selenium) code into testi
         * [Configuration](#configuration)
         * [WebDriver Clients](#webdriver-clients)
             * [Configuration](#configuration-1)
+            * [Taxi](#taxi)
             * [Cabbie](#cabbie)
             * [External](#external)
         * [WebDriver Servers](#webdriver-servers)
@@ -87,7 +88,7 @@ Afterwards, the Web-Driver client-decorator plugin can be configured:
 				"isolation": true, // Runs in isolation mode
   	  	
 				"client": { // Client configuration
-					"type": "cabbie",
+					"type": "taxi",
 					"configuration": {
 						"mode": "sync"
 					},
@@ -111,11 +112,11 @@ Afterwards, the Web-Driver client-decorator plugin can be configured:
 
 Preceptor-WebDriver injects an object (```PRECEPTOR_WEBDRIVER```) into the gloabl scope that holds WebDriver instance information.
 
-* ```PRECEPTOR_WEBDRIVER.driver``` - WebDriver client instance (i.e. Cabbie/Taxi driver instance)
+* ```PRECEPTOR_WEBDRIVER.driver``` - WebDriver client instance (i.e. Taxi/Cabbie driver instance)
 * ```PRECEPTOR_WEBDRIVER.browserName``` - Name of the current browser. This is retrieved from the Selenium capabilities object when connecting to the Selenium server.
 * ```PRECEPTOR_WEBDRIVER.browserVersion``` - Version of the current browser. This is retrieved from the Selenium capabilities object when connecting to the Selenium server.
 * ```PRECEPTOR_WEBDRIVER.browser``` - Browser identifier that combines multiple infos about the browser, including name and version.
-* ```PRECEPTOR_WEBDRIVER.clientName``` - Name of the WebDriver client. (i.e. Cabbie)
+* ```PRECEPTOR_WEBDRIVER.clientName``` - Name of the WebDriver client. (i.e. Taxi)
 * ```PRECEPTOR_WEBDRIVER.serverName``` - Name of the WebDriver server. (i.e. SauceLabs)
 * ```PRECEPTOR_WEBDRIVER.collectCoverage``` - Function that should be triggered when Preceptor should collect coverage reports. Call this before you move from one page to another to avoid loosing coverage data. Integrate this into the navigation APIs of the client to gather the data before a page is refreshed.
 
@@ -167,6 +168,9 @@ The Web-Driver client-decorator has the following configuration options:
 * ```server``` {object} - Server configuration object. See below for more information on how to configure the server.
 
 #####Example
+
+You need the ```taxi``` page to be installed for running this example.
+
 ```javascript
 "configuration": {
 	"isolation": true,
@@ -178,7 +182,7 @@ The Web-Driver client-decorator has the following configuration options:
 		"timeOut": 10000
 	},
 	"client": {
-		"type": "cabbie",
+		"type": "taxi",
 		"configuration": {
 			"mode": "sync",
 			"debug": true
@@ -200,6 +204,7 @@ The Web-Driver client-decorator has the following configuration options:
 
 ####WebDriver Clients
 Following clients are included with this module:
+* ```taxi``` - Modern web-driver client that supports synchronous and asynchronous Selenium testing
 * ```cabbie``` - Simple web-driver client that supports synchronous and asynchronous Selenium testing
 * ```external``` - A placeholder plugin that lets the testing-framework use its own web-driver client without interfering with other already existing and possibly loaded WebDriver clients.
 
@@ -215,7 +220,7 @@ Every Web-Driver client has configuration options that are the same across all W
 ######Example
 ```javascript
 "client": {
-	"type": "cabbie",
+	"type": "taxi",
 	"configuration": {
 		"mode": "sync",
 		"debug": true
@@ -233,6 +238,15 @@ Every Web-Driver client has configuration options that are the same across all W
 	"url": "http://127.0.0.1:4444/wd/hub"
 }
 ```
+
+#####Taxi
+Taxi is a modern Selenium client that supports synchronous and asynchronous testing. For more information, visit the project page at: https://github.com/preceptorjs/taxi
+
+######Configuration
+The web-driver client plugin exposes the following configuration options in the Preceptor client-decorator configuration:
+* ```mode``` {string} - Type of execution mode. Following types are supported: 'sync', 'async'
+* ```debug``` {boolean} - Turns the debug-mode on, printing out every low-level method executed. (default: false)
+* ```httpDebug``` {boolean} Turns the HTTP debug-mode on, printing out every request and response to the WebDriver server. For this option to work, ```debug``` must also be turned on. (default: false)
 
 #####Cabbie
 Cabbie is a lightweight Selenium client that supports synchronous and asynchronous testing. For more information, visit the project page at: https://github.com/ForbesLindesay/cabbie
@@ -390,7 +404,7 @@ The following third-party libraries are used by this module:
 * selenium-server-standalone-jar: https://github.com/adamhooper/selenium-server-standalone-jar
 
 ###Dev-Dependencies
-* cabbie: https://github.com/ForbesLindesay/cabbie
+* taxi: https://github.com/preceptorjs/taxi
 * chai: http://chaijs.com
 * istanbul: https://github.com/gotwarlost/istanbul
 * mocha: https://github.com/visionmedia/mocha
@@ -398,6 +412,8 @@ The following third-party libraries are used by this module:
 * sinon: http://sinonjs.org
 
 ###Optional-Dependecies:
+* taxi: https://github.com/preceptorjs/taxi
+* cabbie-alpha: https://github.com/ForbesLindesay/cabbie / https://github.com/marcelerz/cabbie
 * chromedriver: https://github.com/giggio/node-chromedriver
 * phantomjs: https://github.com/Obvious/phantomjs
 
