@@ -40,7 +40,7 @@
     "underscore": "1.7.0"
   },
   "devDependencies": {
-    "taxi": "^0.1.0",
+    "taxi": "~0.1.0",
     "chai": "1.9.1",
     "coveralls": "2.11.2",
     "mocha": "1.21.4",
