@@ -4,7 +4,7 @@ CHANGELOG
 v0.9.9 - 05/03/15
 * Bugfix: CoverageVar
 
-v0.9.8 
+v0.9.8 - 04/20/15
 * Add support for Taxi
 
 v0.9.7 - 04/08/15
